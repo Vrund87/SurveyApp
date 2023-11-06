@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>SurveyWebApp</PageTitle>
+
+<div class="page">
+    @*<div class="sidebar">
+        <NavMenu />
+    </div>*@
+
+    <main>
+        <div class="top-row px-4" style="background-color:#5f7bc9">
+            @*<a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>*@
+        </div>
+
+        <article class="content px-4">
+            <ErrorBoundary @ref="errorBoundary">
+                <ChildContent>
+                    @Body
+                </ChildContent>
+                <ErrorContent>
+                    <div class="alert alert-danger" role="alert">
+                        <p>An error occured while calling an API.</p>
+                        <button class="btn btn-success" @onclick="()=>errorBoundary.Recover()">Recover</button>
+                    </div>
+                </ErrorContent>
+            </ErrorBoundary>
+            
+        </article>
+    </main>
+</div>
+
+@code {
+    private ErrorBoundary errorBoundary;
+    protected override void OnInitialized()
+    {
+        errorBoundary = new();
+    }
+}

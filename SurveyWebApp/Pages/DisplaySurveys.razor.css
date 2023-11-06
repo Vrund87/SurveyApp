@@ -1,0 +1,31 @@
+﻿
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center the cards horizontally */
+}
+
+.survey-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    
+    background-color: #fff;
+}
+
+    .survey-card h3 {
+        font-size: 18px;
+        margin-top: 0;
+    }
+
+    .survey-card a {
+        color: blue;
+        text-decoration: none;
+    }
+
+        .survey-card a:hover {
+            text-decoration: underline;
+        }
+

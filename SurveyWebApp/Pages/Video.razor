@@ -1,0 +1,271 @@
+﻿
+@if(!ty) {
+    <h4 style="text-align:center;font-weight:bold">
+        Kindly view the complete video in order to proceed further
+    </h4>
+    <div class="flexbox">
+        <video id="myVideo" style="width: 70%; object-fit: fill;" controls>
+            <source src="/video/sample.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="container py-3" id="surveyForm" Model="formData" style="display:none">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h2>Survey Questions</h2>
+                    </div>
+                    <div class="card-body">
+                        <EditForm Model="formData" OnValidSubmit="SubmitDetails">
+                            <DataAnnotationsValidator />
+
+                            <div class="form-group margin">
+                                <label>Do you or your team work actively on an app/web app that runs on a battery-operated device like a phone, a tablet or a laptop :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.sq1">
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@y" class="form-check-input" />
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@n" class="form-check-input" />
+                                                No
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.sq1 ) />
+                                </div>
+
+                            </div>
+
+                            <div class="form-group margin">
+                                <label>Does the app use API that could be sending more data than required on the client side in the UI :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.sq2">
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@y" class="form-check-input" />
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@n" class="form-check-input" />
+                                                No
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.sq2 ) />
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="form-group margin">
+                                <label>Could the RMVRVM paradigm be followed in the project that your team is doing to save energy on client devices :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.sq3">
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@y" class="form-check-input" />
+                                                Yes
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@n" class="form-check-input" />
+                                                No
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.sq3 ) />
+                                </div>
+
+
+                            </div>
+                                
+                            <div class="margin">
+                                <p style="margin:0;text-align:left">Which of the following issues you think could the RMVRVM paradigm face when followed in your project?</p>
+                                <div class="form-check">
+                                    <InputCheckbox @bind-Value="formData.sq4a" class="form-check-input" />
+                                    <label class="form-check-label">UI of app is too complex to move to server-side</label>
+                                </div>
+                                <div class="form-check">
+                                    <InputCheckbox @bind-Value="formData.sq4b" class="form-check-input" />
+                                    <label class="form-check-label">Collaboration issues because front-end and back-end teams are different</label>
+                                </div>
+                                <div class="form-check">
+                                    <InputCheckbox @bind-Value="formData.sq4c" class="form-check-input" />
+                                    <label class="form-check-label">The project cannot implement a change due to tight delivery milestones</label>
+                                </div>
+                                <div class="form-check">
+                                    <InputCheckbox @bind-Value="formData.sq4d" class="form-check-input" />
+                                    <label class="form-check-label">The paradigm has a high learning curve</label>
+                                </div>
+                                <div class="form-floating margin">
+                                    <InputTextArea id="other" class="form-control" @bind-Value="formData.sq4Other" placeholder="name@example.com" style="height:150px" />
+                                    <label for="other" style="color:grey">Other Issues (Limit : 200 words) </label>
+                                    <ValidationMessage For=@( () => formData.sq4Other ) />
+                                </div>
+                            </div>
+
+                            <div class="form-group margin">
+                                <label>The RMVRVM approach could be applied in app/web app gradually, starting from the feature under development, taking one UI page at a time. How likely is it that your team can adopt RMVRVM using this approach :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.sq5">
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op1" class="form-check-input" />
+                                                Very likely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op2" class="form-check-input" />
+                                                Somewhat likely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op3" class="form-check-input" />
+                                                Unlikely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op4" class="form-check-input" />
+                                                Not at all
+                                            </label>
+                                        </div>
+
+
+
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.sq6 ) />
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-group margin">
+                                <label>How likely are you to discuss the RMVRVM paradigm in your organization or team to explore its applicability :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.sq6">
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op1" class="form-check-input" />
+                                                Very likely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op2" class="form-check-input" />
+                                                Somewhat likely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op3" class="form-check-input" />
+                                                Unlikely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op4" class="form-check-input" />
+                                                Not at all
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.sq6 ) />
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-group margin">
+                                <label>How likely are you to explore further the RMVRVM paradigm in your organization by recommending a pilot or an intern project :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.sq7">
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op1" class="form-check-input" />
+                                                Very likely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op2" class="form-check-input" />
+                                                Somewhat likely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op3" class="form-check-input" />
+                                                Unlikely
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline">
+                                                <InputRadio Value="@op4" class="form-check-input" />
+                                                Not at all
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.sq7 ) />
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-group margin">
+                                <label for="myTextArea1">What is your opinion on the applicability or potential of real-world usage of the RMVRVM paradigm?</label>
+                                <InputTextArea id="myTextArea1" @bind-Value="formData.sq8" class="form-control" style="height:150px"></InputTextArea>
+                            </div>
+
+                            <div class="form-group margin">
+                                <label for="myTextArea2"> What are the constraints you see that could hinder applying the RMVRVM paradigm in the source code of your current project?</label>
+                                <InputTextArea id="myTextArea2" @bind-Value="formData.sq9" class="form-control" style="height:150px"></InputTextArea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+                        </EditForm>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+}
+else
+{
+    <div class="thank-you-container">
+        <div class="circle">
+            <div class="checkmark">
+                <span>&#10003;</span>
+            </div>
+        </div>
+        <h2 class="py-2">Thank You!</h2>
+        <p>Your survey has been received.</p>
+        <p>You can find the experimental app <a href="https://1drv.ms/f/s!AkEhYpXcg4ASkbV5ulmtWyBbhrbTug?e=9SA2nf" target="_blank">here</a></p>
+    </div>
+}
+
+
+
+

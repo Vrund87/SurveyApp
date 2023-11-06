@@ -1,0 +1,145 @@
+﻿@page "/"
+@using SurveyWebApp.Models;
+
+
+@if(flag==1)
+{
+
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h2>Personal Details</h2>
+                    </div>
+                    <div class="card-body">
+                        <EditForm Model="formData" OnValidSubmit="GoNext">
+                            <DataAnnotationsValidator />
+
+                            <div class="form-floating margin">
+                                <InputText id="name" class="form-control" @bind-Value="formData.name" placeholder="name@example.com" />
+                                <label for="name">Name*</label>
+                                <ValidationMessage For=@( () => formData.name ) />
+                            </div>
+
+
+                            <div class="form-floating margin">
+                                <InputText id="email" class="form-control" @bind-Value="formData.email" placeholder="name@example.com" />
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="form-floating margin">
+                                <InputText id="phone" class="form-control" @bind-Value="formData.phone" placeholder="name@example.com" />
+                                <label for="phone">Phone</label>
+                            </div>
+
+                            <div class="form-floating margin">
+                                <InputText id="linkedin" class="form-control" @bind-Value="formData.linkedIn" placeholder="name@example.com" />
+                                <label for="linkedin">LinkedIn</label>
+                            </div>
+
+                            <div class="form-group margin">
+                                <label class="margz">Years of Experience* :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.yearsOfExperience">
+                                        <div>
+                                            <label class="form-check-inline margz setfont">
+                                                <InputRadio Value="@exp1" class="form-check-input" />
+                                                @exp1
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@exp2" class="form-check-input" />
+                                                @exp2
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@exp3" class="form-check-input" />
+                                                @exp3
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@exp4" class="form-check-input" />
+                                                @exp4
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.yearsOfExperience ) />
+                                </div>
+
+                            </div>
+
+                            <div class="form-group margin">
+                                <label class="margz">Current Role* :</label>
+
+                                <div>
+                                    <InputRadioGroup @bind-Value="formData.currentRole">
+                                        <div>
+                                            <label class="form-check-inline margz setfont">
+                                                <InputRadio Value="@role1" class="form-check-input" />
+                                                @role1
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@role2" class="form-check-input" />
+                                                @role2
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@role3" class="form-check-input" />
+                                                @role3
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@role4" class="form-check-input" />
+                                                @role4
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="form-check-inline margz">
+                                                <InputRadio Value="@role5" class="form-check-input" />
+                                                @role5
+                                            </label>
+                                        </div>
+                                    </InputRadioGroup>
+                                    <ValidationMessage For=@( () => formData.currentRole ) />
+                                </div>
+
+                            </div>
+
+                            @if(formData.currentRole=="Other")
+                            {
+                                <div class="form-floating margin">
+                                    <InputText id="other" class="form-control" @bind-Value="formData.otherRole" placeholder="name@example.com" />
+                                    <label for="other" style="color:grey">Please specify other Role </label>
+                                    <ValidationMessage For=@( () => formData.otherRole ) />
+                                </div>
+                            }
+
+                            <div class="form-check margin">
+                                <InputCheckbox class="form-check-input" id="canContact" @bind-Value="formData.canContact" />
+                                <label class="form-check-label" for="canContact">Can we contact you later if required?</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </EditForm>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+   
+    <Video surveyPostRequest="surveyPostRequest"></Video>
+}
+
+

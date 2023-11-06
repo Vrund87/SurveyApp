@@ -1,0 +1,41 @@
+﻿.flexbox {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.margin {
+    margin:3% 0;
+}
+
+.label-bold {
+    font-weight:bold;
+}
+
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.circle {
+    width: 9%;
+    height: 16%;
+    background-color: green;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark {
+    font-size: 50px;
+    color: white;
+}
+
+h2, p {
+    text-align: center;
+}

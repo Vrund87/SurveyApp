@@ -1,0 +1,61 @@
+﻿@page "/viewsurveys"
+
+@if(disp)
+{
+    <div class="card-container">
+        @foreach (var survey in surveys)
+        {
+            <div class="survey-card">
+                <h2>@survey.name </h2>
+                <p><strong>Years of Experience :</strong> @survey.yearsOfExperience</p>
+                @if(survey.currentRole!="Other")
+                {
+                    <p><strong>Current Role :</strong> @survey.currentRole</p>
+                }
+                else
+                {
+                    <p><strong>Current Role :</strong> @survey.otherRole</p>
+                }
+                <p><strong>Email :</strong> @func(survey.email)</p>
+                <p><strong>Phone :</strong> @func(survey.phone)</p>
+                <p><strong>LinkedIn :</strong> @func(survey.linkedIn)</p>
+                <p><strong>Can we contact :</strong> @func1(survey.canContact)</p>
+                <p><strong>1. Do you or your team work actively on an app/web app that runs on a battery-operated device like a phone, a tablet or a laptop :</strong> @survey.sq1</p>
+                <p><strong>2. Does the app use API that could be sending more data than required on the client side in the UI :</strong> @survey.sq2</p>
+                <p><strong>3. Could the RMVRVM paradigm be followed in the project that your team is doing to save energy on client devices :</strong> @survey.sq3</p>
+                <p><strong>4. Which of the following issues you think could the RMVRVM paradigm face when followed in your project?</strong></p>
+                @if (survey.sq4a)
+                {
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;UI of app is too complex to move to server-side</p>
+                }
+                @if (survey.sq4b)
+                {
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;Collaboration issues because front-end and back-end teams are different</p>
+                }
+                @if (survey.sq4c)
+                {
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;The project cannot implement a change due to tight delivery milestones</p>
+                }
+                @if(survey.sq4d)
+                {
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;The paradigm has a high learning curve</p>
+                }
+                @if(!string.IsNullOrEmpty(survey.sq4Other))
+                {
+                    <p><strong>Other Reasons :</strong> @survey.sq4Other</p>
+                }
+                <p><strong>5. The RMVRVM approach could be applied in app/web app gradually, starting from the feature under development, taking one UI page at a time. How likely is it that your team can adopt RMVRVM using this approach :</strong> @survey.sq5</p>
+                <p><strong>6. How likely are you to discuss the RMVRVM paradigm in your organization or team to explore its applicability :</strong> @survey.sq6</p>
+                <p><strong>7. How likely are you to explore further the RMVRVM paradigm in your organization by recommending a pilot or an intern project :</strong> @survey.sq7</p>
+                <p><strong>8. What is your opinion on the applicability or potential of real-world usage of the RMVRVM paradigm?</strong></p>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;@survey.sq8
+                </p>
+                <p><strong>9. What are the constraints you see that could hinder applying the RMVRVM paradigm in the source code of your current project?</strong></p>
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;@survey.sq9
+                </p>
+            </div>
+        }
+    </div>
+}

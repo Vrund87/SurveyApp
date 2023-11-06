@@ -1,0 +1,7 @@
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\SurveyWebApp.exe
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\SurveyWebApp.dll
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\SurveyWebApp.deps.json
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\SurveyWebApp.runtimeconfig.json
+D:\SurveyWebsite\Survey_v2\SurveyWebApp\SurveyWebApp\obj\Release\net6.0\PubTmp\Out\SurveyWebApp.pdb
